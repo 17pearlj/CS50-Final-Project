@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Presets
+{% endblock %}
+
+{% block main %}
+    <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+ <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans" rel="stylesheet">
+        <style>
+            table {
+                font-family: 'Bree Serif', serif;
+                font-family: 'Open Sans', sans-serif;
+
+            }
+        </style>
+    </head>
+    <div class="backgroundpicture"></div>
+    <form action="/presets" id = "preset" method="post">
+        <div class="screen">
+        <div class="transbox5">
+
+        <p><font face="Bree Serif" font size="6" color="white"><center>Your favorite presets!</center></font></p>
+        <table class="table table-striped" id = "info">
+            <thead>
+                <tr style = color:white font size = "5">
+                    <th>Name</th>
+                    <th>Key</th>
+                    <th>Style</th>
+                    <th>Time Signature</th>
+                    <th>Tonality</th>
+                    <th>Energy</th>
+                    <th>Measures</th>
+                </tr>
+            </thead>
+            <tbody style = color:white>
+
+            {% for p in pre %}
+                <tr>
+                    <td>{{p["name"]}}</td>
+                    <td>{{p["tonic"]}}</td>
+                    <td>{{p["style"]}}</td>
+                    <td>{{p["timeSignature"]}}</td>
+                    <td>{{p["tonality"]}}</td>
+                    <td>{{p["energy"]}}</td>
+                    <td>{{p["measures"]}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <p><font size="4" color="white"><center>{{zero}}</center></font></p>
+        <p><font face="Bree Serif" font size="5" color="white"><center>Preset Libary Options</center></font></p>
+
+        <div id="center-on-page3">
+            <!--input type="radio" name="option" id="edit" value="edit"/-->
+            <!--label for="edit">Edit Preset</label-->
+            <input type="radio" name="option" id="delete" value="delete"/>
+            <label for="delete">Delete Preset</label>
+            <input type="radio" name="option" id="regenerate" value="regenerate"/>
+            <label for="regenerate">Regenerate Preset Song </label>
+        </div>
+
+        <div class="form-group">
+            <select class="form-control" name="name">
+            <option disabled selected value="">Name of Preset</option>
+                {% for p in pre %}
+                    <option value = "{{ p["name"]}}">{{ p["name"]}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <button class="btn" style="margin-top: 10px;">
+            <svg width="277" height="62">
+                <defs>
+                <linearGradient id="grad1">
+                        <stop offset="0%" stop-color="#B53BBA"/>
+                        <stop offset="100%" stop-color="#8A28B7" />
+                </linearGradient>
+                </defs>
+                <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
+            </svg>
+                <span>Okay</span>
+            </button>
+    </form>
+    <script>
+        let form = document.getElementById("preset");
+        form.onsubmit = function()
+        {
+            if(form.delete.checked){
+                var r=confirm("Are you sure you want to delete this preset?");
+                if (r==true)
+                {
+                    return true
+                }
+                return false
+                }
+
+        }
+    </script>
+
+
+{% endblock %}

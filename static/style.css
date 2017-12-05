@@ -1,0 +1,744 @@
+/*submit buttons are credited to https://codepen.io/anon/pen/ZaqeRQ*/
+/*radio buttons are credited to https://codepen.io/raubaca/pen/ONzBxP*/
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway);
+
+nav .navbar-brand .grey
+{
+    color: #b1c1c0;
+}
+
+.purple
+{
+    color: #784a89;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main table
+{
+    /* left-align contents */
+    text-align: left;
+}
+
+/*main tfoot*/
+/*{*/
+    /* boldface tables' footers */
+/*    font-weight: bold;*/
+/*}*/
+
+.form-group:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #b1c1c0;
+  outline: none;
+}
+
+
+#slidecontainer {
+    width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    display: inline-block;
+    width: 60%; /* Full-width */
+    height: 8px; /* Specified height */
+    border-radius: 15px;
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 50%;
+    border: 5px solid #b53bba;
+    background: #d3d3d3;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 50%;
+    background: #b53bba; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+#icon1 {
+    background: #fff url(https://image.flaticon.com/icons/svg/40/40358.svg) no-repeat center right;
+    padding-right: 5px;
+    background-size: 10% 70%
+}
+#icon2 {
+    background: #fff url(https://image.flaticon.com/icons/svg/7/7590.svg) no-repeat center right;
+    padding-right: 0px;
+    background-size: 10% 60%
+}
+
+#icon3 {
+    background: #fff url(https://image.flaticon.com/icons/svg/7/7590.svg) no-repeat center right;
+    padding-right: 0px;
+    background-size: 10% 60%
+}
+
+
+
+
+
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0px 0px 10px rgba(232, 212, 160, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+input[type=password]:focus, textarea:focus {
+  box-shadow: 0px 0px 10px rgba(232, 212, 160, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+#spoontunelogo {
+ position: absolute;
+ display:block;
+ margin: auto;
+ left: 0;
+ right: 0;
+ top: .30em;
+ max-width:100px;
+}
+
+#brand {
+ position: relative;
+ display:block;
+ margin: auto;
+ left: 1em;
+ right: 0;
+ top: .4em;
+}
+
+body {
+    background-image: url("https://c.pxhere.com/photos/fd/ac/music_musical_note_melody-539279.jpg!d");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.screen {
+    position: relative;
+    height: 500px;
+}
+div.transbox {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 500px;
+  height: 355px;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+}
+
+
+
+
+
+div.transbox2 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 500px;
+  height: 400px;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+}
+
+div.transbox3 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 500px;
+  height:440px;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 0px 0;
+}
+
+div.transbox4 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 500px;
+  height:275px;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+}
+
+div.transbox5 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 800;
+  height:10000;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: -5px;
+  right: 5px;
+  padding: 5px 0;
+}
+
+div.transbox6 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 900px;
+  height: 250px;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  padding: 5px 0;
+}
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+.navbar a {
+    color: white !important;
+}
+
+h2 {
+    color:white;
+}
+
+h3 {
+    color:white;
+}
+
+h4 {
+    color:white;
+}
+
+.help-tip{
+    position: absolute;
+    top: 237px;
+    right: 30px;
+    text-align: center;
+    background-color: #6b2776;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: default;
+}
+
+.help-tip:before{
+    content:'?';
+    font-weight: bold;
+    color:#fff;
+}
+
+.help-tip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip p{    /* The tooltip */
+    display: none;
+    text-align: center;
+    background-color: #1E2021;
+    padding: 17px;
+    width: 300px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    left: -4px;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 1.4;
+    z-index:9999
+}
+
+.help-tip p:before{ /* The pointer of the tooltip */
+    position: absolute;
+    content: '';
+    width:0;
+    height: 0;
+    border:6px solid transparent;
+    border-bottom-color:#1E2021;
+    left:10px;
+    top:-12px;
+}
+
+.help-tip p:after{ /* Prevents the tooltip from being hidden */
+    width:100%;
+    height:40px;
+    content:'';
+    position: absolute;
+    top:-40px;
+    left:0;
+}
+
+/* CSS animation */
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity:0;
+        transform: scale(0.6);
+    }
+
+    100% {
+        opacity:100%;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+
+.help-tip2{
+    position: absolute;
+    top: 276px;
+    right: 30px;
+    text-align: center;
+    background-color: #6b2776;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 22px;
+    cursor: default;
+}
+
+.help-tip2:before{
+    content:'?';
+    font-weight: bold;
+    color:#fff;
+}
+
+.help-tip2:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+
+    -webkit-animation: fadeIn 0.3s ease-in-out;
+    animation: fadeIn 0.3s ease-in-out;
+
+}
+
+.help-tip2 p{    /* The tooltip */
+    display: none;
+    text-align: center;
+    background-color: #1E2021;
+    padding: 17px;
+    width: 300px;
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    left: -4px;
+    color: #FFF;
+    font-size: 13px;
+    line-height: 1.4;
+    z-index:9999
+}
+
+.help-tip2 p:before{ /* The pointer of the tooltip */
+    position: absolute;
+    content: '';
+    width:0;
+    height: 0;
+    border:6px solid transparent;
+    border-bottom-color:#1E2021;
+    left:10px;
+    top:-12px;
+}
+
+.help-tip2 p:after{ /* Prevents the tooltip from being hidden */
+    width:100%;
+    height:40px;
+    content:'';
+    position: absolute;
+    top:-40px;
+    left:0;
+}
+
+#button {
+    border-radius: 8px;
+    height: 60px;
+    font-size: 20px;
+}
+
+/*.newsong{*/
+/*    position: absolute;*/
+/*    top: 88px;*/
+/*    right: 420px;*/
+/*    width: 70px;*/
+/*    height: 70px;*/
+/*    background: url(https://i.imgur.com/D1U9vIV.png) no-repeat 0 0;*/
+/*    background-size: 100%;*/
+/*    content: "";*/
+/*}*/
+
+/*.newsong2{*/
+/*    position: absolute;*/
+/*    top: 147px;*/
+/*    right: 10px;*/
+/*    width: 90px;*/
+/*    height: 70px;*/
+/*    background: url(https://i.imgur.com/93E6ye0.png) no-repeat 0 0;*/
+/*    background-size: 100%;*/
+/*    content: "";*/
+/*}*/
+
+
+.btn {
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+    //stroke: #EC0033;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.btn span{
+  background: rgb(255,130,130);
+  background: -moz-linear-gradient(left,  rgba(181, 59, 186,1) 0%, rgba(138, 40, 183,1) 100%);
+  background: -webkit-linear-gradient(left,  rgba(181, 59, 186,1) 0%,rgba(138, 40, 183,1) 100%);
+  background: linear-gradient(to right,  rgba(181, 59, 186,1) 0%,rgba(138, 40, 183,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#B53BBA', endColorstr='#8A28B7',GradientType=1 );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+
+.center-on-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+label[for="3/4"],
+label[for="4/4"],
+label[for="6/8"] {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 10px;
+  line-height: 36px;
+  cursor: pointer;
+  color:white;
+}
+
+label[for="3/4"]::before,
+label[for="4/4"]::before,
+label[for="6/8"]::before {
+  content: " ";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #d74eed;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+input[type="radio"] + label[for="3/4"]::before,
+input[type="radio"] + label[for="4/4"]::before,
+input[type="radio"] + label[for="6/8"]::before {
+  border-radius: 18px;
+}
+/* Checked */
+
+input[type="radio"]:checked + label[for="3/4"],
+input[type="radio"]:checked + label[for="4/4"],
+input[type="radio"]:checked + label[for="6/8"] {
+  padding-left: 10px;
+  color: #fff;
+}
+
+input[type="radio"]:checked + label[for="3/4"]::before,
+input[type="radio"]:checked + label[for="4/4"]::before,
+input[type="radio"]:checked + label[for="6/8"]::before {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #d74eed;
+}
+/* Transition */
+label[for="3/4"],
+label[for="3/4"]::before,
+label[for="4/4"],
+label[for="4/4"]::before,
+label[for="6/8"],
+label[for="6/8"]::before {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+
+
+
+.center-on-page2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.center-on-page3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+
+label[for=major],
+label[for=naturalMinor] {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 10px;
+  line-height: 36px;
+  cursor: pointer;
+  color:white;
+}
+
+label[for=major]::before,
+label[for=naturalMinor]::before {
+  content: " ";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #d74eed;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+input[type="radio"] + label[for=major]::before,
+input[type="radio"] + label[for=naturalMinor]::before {
+  border-radius: 18px;
+}
+/* Checked */
+
+input[type="radio"]:checked + label[for=major],
+input[type="radio"]:checked + label[for=naturalMinor] {
+  padding-left: 10px;
+  color: #fff;
+}
+
+input[type="radio"]:checked + label[for=major]::before,
+input[type="radio"]:checked + label[for=naturalMinor]::before {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #d74eed;
+}
+/* Transition */
+label[for=major],
+label[for=major]::before,
+label[for=naturalMinor],
+label[for=naturalMinor]::before {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+label[for="edit"],
+label[for="delete"],
+label[for="regenerate"] {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 10px;
+  line-height: 36px;
+  cursor: pointer;
+  color:white;
+}
+
+label[for="edit"]::before,
+label[for="delete"]::before,
+label[for="regenerate"]::before {
+  content: " ";
+  position: absolute;
+  top: 6px;
+  left: 0;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #d74eed;
+  border-radius: 4px;
+  z-index: -1;
+}
+
+input[type="radio"] + label[for="edit"]::before,
+input[type="radio"] + label[for="delete"]::before,
+input[type="radio"] + label[for="regenerate"]::before {
+  border-radius: 18px;
+}
+/* Checked */
+
+input[type="radio"]:checked + label[for="edit"],
+input[type="radio"]:checked + label[for="delete"],
+input[type="radio"]:checked + label[for="regenerate"] {
+  padding-left: 10px;
+  color: #fff;
+}
+
+input[type="radio"]:checked + label[for="edit"]::before,
+input[type="radio"]:checked + label[for="delete"]::before,
+input[type="radio"]:checked + label[for="regenerate"]::before {
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #d74eed;
+}
+/* Transition */
+label[for="edit"],
+label[for="edit"]::before,
+label[for="delete"],
+label[for="delete"]::before,
+label[for="regenerate"],
+label[for="regenerate"]::before {
+  -webkit-transition: .25s all ease;
+  -o-transition: .25s all ease;
+  transition: .25s all ease;
+}
+
+main table
+{
+    /* left-align contents */
+    text-align: center;
+}
+
+
+
+/*main tfoot*/
+/*{*/
+    /* boldface tables' footers */
+/*    font-weight: bold;*/
+/*}*/

@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Save
+{% endblock %}
+
+{% block main %}
+    <head>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+ <link href='https://fonts.googleapis.com/css?family=Lato|Roboto:400,900' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Open+Sans" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Bree Serif', serif;
+                font-family: 'Open Sans', sans-serif;
+            }
+        </style>
+    </head>
+    <div class="backgroundpicture"></div>
+    <form action="/save" method="post">
+        <div class="screen">
+        <div class="transbox5">
+        <p><font face="Bree Serif" font size="6" color="white"><center>Save Presets</center></font></p>
+        <p><font face="Bree Serif" font size="4" color="white"><center>{{apology}}</center></font></p>
+        <div class="form-group" id="input_container1">
+        <!--<img src="https://image.flaticon.com/icons/svg/40/40358.svg" id="input_img";>-->
+        <input id="icon1" id="input" input autocomplete="off" style="width: 400px; margin-right: 0px; border-color:#784a89; padding:none" autofocus class="form-control" name="name" placeholder="Name of Set of Presets" type="text"/>
+
+
+        </div>
+        <div class = "save">
+            <table class="table table-striped" style="margin-bottom: 100px" id="info">
+            <thead>
+            <tr style = color:white font size = "5">
+                <th>Key</th>
+                <th>Style</th>
+                <th>Time Signature</th>
+                <th>Tonality</th>
+                <th>Energy</th>
+                <th>Measures</th>
+            </tr>
+            </thead>
+            <tbody style= color:white>
+            <tr>
+                <td>{{tonic}}</td>
+                <td>{{style}}</td>
+                <td>{{timeSignature}}</td>
+                <td>{{tonality}}</td>
+                <td>{{energy}}</td>
+                <td>{{measures}}</td>
+            </tr>
+            </tbody>
+        </div>
+
+                <button class="btn" type="submit" style="margin-bottom: -300px; margin-right: 0px;">
+            <svg width="277" height="62" padding-left="2cm">
+                <defs>
+                    <linearGradient id="grad1">
+                        <stop offset="0%" stop-color="#B53BBA"/>
+                        <stop offset="100%" stop-color="#8A28B7" />
+                    </linearGradient>
+                </defs>
+                <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50" padding-left="2cm"></rect>
+            </svg>
+            <span>Save</span>
+        </button>
+        </div>
+        </div>
+    </form>
+
+
+
+
+{% endblock %}
