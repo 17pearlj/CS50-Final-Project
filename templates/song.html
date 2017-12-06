@@ -22,27 +22,18 @@
         <div class="transbox6">
             <p><font face="Bree Serif" font size="6" color="white"><center>Your Song.</center></font></p>
             <!--<p><font face="Bree Serif" font size="4" color="white"><center>Key: {{tonic}}, Time Signature {{timeSignature}}, Style: {{style}}, Tonality: {{tonality}}, Energy: {{energy}}, Measures: {{measures}}</center></font></p>-->
+
                 <center><audio controls>
+
                     <source src="{{songFileLocation}}" type="audio/wav">
+
                 </audio></center>
 
+                <div class=downloadbuttons>
+                <a href="{{midiLocation}}" download class="buttonDownload">Download as MIDI</a>
+                <a href="{{songFileLocation}}" download class="buttonDownload">Download as WAV</a>
+                </div>
 
-            <!--REDIRECTS BACK TO MAKE NEW SONG-->
-            <!--RUN W/ S-->
-            <!--<div class="container">-->
-            <!--    <a href="/song_input" class="btn" style="margin-top: 300px; padding-top:300px">-->
-            <!--      <svg width="277" height="62">-->
-            <!--        <defs>-->
-            <!--            <linearGradient id="grad1">-->
-            <!--                <stop offset="0%" stop-color="#B53BBA"/>-->
-            <!--                <stop offset="100%" stop-color="#8A28B7" />-->
-            <!--            </linearGradient>-->
-            <!--        </defs>-->
-            <!--         <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>-->
-            <!--      </svg>-->
-                  <!--<span>Voir mes réalisations</span>-->
-            <!--        <span>Change Song Parameters</span>-->
-            <!--    </a>-->
                 <a class="btn" href="/save" style="margin-top: 40px;">
                   <svg width="277" height="62">
                     <defs>
@@ -54,7 +45,8 @@
                      <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
                   </svg>
                     <span>Save Presets</span>
-                </a>                <a class="btn" href="/song" style="margin-top: 40px;">
+                </a>
+                <a class="btn" href="/song" style="margin-top: 100px;">
                   <svg width="277" height="62">
                     <defs>
                         <linearGradient id="grad1">
@@ -80,6 +72,32 @@
                   </svg>
                     <span>Change Presets</span>
                 </a>
+
+                <!--<a class="btn" href="{{midiLocation}}" download style="margin-top: 40px;">-->
+                <!--  <svg width="277" height="62">-->
+                <!--    <defs>-->
+                <!--        <linearGradient id="grad1">-->
+                <!--            <stop offset="0%" stop-color="#B53BBA"/>-->
+                <!--            <stop offset="100%" stop-color="#8A28B7" />-->
+                <!--        </linearGradient>-->
+                <!--    </defs>-->
+                <!--     <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>-->
+                <!--  </svg>-->
+                <!--    <span>Download as midi</span>-->
+                <!--</a>-->
+
+                <!--<a class="btn" href="{{songFileLocation}}" download style="margin-top: 40px;">-->
+                <!--  <svg width="277" height="62">-->
+                <!--    <defs>-->
+                <!--        <linearGradient id="grad1">-->
+                <!--            <stop offset="0%" stop-color="#B53BBA"/>-->
+                <!--            <stop offset="100%" stop-color="#8A28B7" />-->
+                <!--        </linearGradient>-->
+                <!--    </defs>-->
+                <!--     <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>-->
+                <!--  </svg>-->
+                <!--    <span>Download as wav</span>-->
+                <!--</a>-->
             <!--    <a class="btn" style="margin-top: 90px;">-->
             <!--      <svg width="277" height="62">-->
             <!--        <defs>-->

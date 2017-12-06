@@ -214,10 +214,16 @@ def createTune(tonic, style, tonality, energy, tempo, timeSignature, measures):
             measureLength = 0
         return songStream
 
-def generateOutputString():
+def generateOutputString(number):
     start = "static/"
-    start = start + str(random.randint(1,1000000))
+    start = start + str(number)
     start = start + ".wav"
+    return start
+
+def songMidiLocation(number):
+    start = "static/"
+    start = start + str(number)
+    start = start + ".midi"
     return start
 
 

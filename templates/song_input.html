@@ -20,7 +20,7 @@
     <div class="screen">
     <div class="transbox3">
         <form action="/song_input" method="post">
-            <div class="help-tip"><p>Tonality is the frequency of the key's primary, complimentary notes in a song.</p></div>
+            <div class="help-tip"><p>Tonality is the frequency of the key's primary chord tones to it's complimentary notes in the song.</p></div>
             <div class="help-tip2"><p>Energy is the speed of the notes in a song.</p></div>
 
             <p><font face="Bree Serif" font size="6" color="white"><center>Set your preferences.</center></font></p>
@@ -43,27 +43,19 @@
                     <option value = "B3">B</option></option>
             </select>
 
-            <div id="center-on-page">
-
-              <h4 style="display:inline-block;padding-right:20px;font-size:18px;">Time Signature:</h4>
-              <input type="radio" name="timeSignature" id="3/4" value="3/4"/>
-              <label for="3/4">3/4</label>
-              <input type="radio" name="timeSignature" id="4/4" value="4/4" checked="checked"/>
-              <label for="4/4">4/4</label>
-              <input type="radio" name="timeSignature" id="6/8" value="6/8"/>
-              <label for="6/8">6/8</label>
-
-            </div>
 
             <div id="center-on-page2">
 
-              <h4 style="display:inline-block;padding-right:20px;font-size:18px;">Style:</h4>
               <input type="radio" name="style" id="major" value="major" checked="checked"/>
               <label for="major">Major</label>
               <input type="radio" name="style" id="naturalMinor" value="naturalMinor"/>
               <label for="naturalMinor">Natural Minor</label>
-
-
+              <input type="radio" name="style" id="harmonicMinor" value="harmonicMinor"/>
+              <label for="harmonicMinor">Harmonic Minor</label>
+              <input type="radio" name="style" id="majorPentatonic" value="majorPentatonic"/>
+              <label for="majorPentatonic">Major Pentatonic</label>
+              <input type="radio" name="style" id="minorPentatonic" value="minorPentatonic"/>
+              <label for="minorPentatonic">Minor Pentatonic</label>
             </div>
 
             <div id="container1" style="text-align: left;padding-left:30px; padding-top:10px;">
@@ -96,23 +88,6 @@
                 }
             </script>
 
-
-            <!--<h3>Tempo</h3>-->
-
-            <!--<div id="container3" style="text-align: left; padding-left:30px; padding-top:10px;">-->
-            <!--  <h4 style="display:inline-block;padding-right:30px;font-size:18px;">Tempo: <span id="tempo"></span></h4>-->
-            <!--  <input type="range"  name="tempo" min="40" max="240" value="100" class="slider" id="myRange3">-->
-            <!--</div>-->
-            <!--<script>-->
-            <!--    var slider3 = document.getElementById("myRange3");-->
-            <!--    var output3 = document.getElementById("tempo");-->
-            <!--    output3.innerHTML = slider3.value;-->
-
-            <!--    slider3.oninput = function() {-->
-            <!--        output3.innerHTML = this.value;-->
-            <!--    }-->
-            <!--</script>-->
-
             <div id="container4" style="text-align: left;padding-left:30px; padding-top:10px;">
               <h4 style="display:inline-block;padding-right:28px;font-size:18px;">Measures: <span id="measures"></span></h4>
               <input type="range" name="measures" min="1" max="8" value="4" class="slider" id="myRange4">
@@ -127,8 +102,20 @@
                 }
             </script>
 
+            <div id="center-on-page">
+
+              <h4 style="display:inline-block;padding-right:20px; padding-top:20px;font-size:18px;">Time Signature:</h4>
+              <input type="radio" name="timeSignature" id="3/4" value="3/4"/>
+              <label for="3/4">3/4</label>
+              <input type="radio" name="timeSignature" id="4/4" value="4/4" checked="checked"/>
+              <label for="4/4">4/4</label>
+              <input type="radio" name="timeSignature" id="6/8" value="6/8"/>
+              <label for="6/8">6/8</label>
+
+            </div>
+
             <!--<input type="number" name="quantity" min="40" max="240" step="0">-->
-            <button class="btn" style="margin-top: 20px;">
+            <button class="btn" style="margin-top: 10px;">
                   <svg width="277" height="62">
                     <defs>
                         <linearGradient id="grad1">

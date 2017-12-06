@@ -4,8 +4,9 @@ from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions
 from werkzeug.security import check_password_hash, generate_password_hash
-from helpers import generateScale, generateSampleNotes, generateSampleLengths, createNote, createTune, generateOutputString
+from helpers import generateScale, generateSampleNotes, generateSampleLengths, createNote, createTune, generateOutputString, songMidiLocation
 import pysynth
+import random
 from midi2audio import FluidSynth
 from extra import login_required
 
@@ -137,14 +138,18 @@ def song():
     output = db.execute("SELECT * FROM active WHERE userid = :userid", userid=session["user_id"])
     print(output)
     song = createTune(output[0]["tonic"], output[0]["style"], output[0]["tonality"], output[0]["energy"], 120, output[0]["timeSignature"], output[0]["measures"])
-    songMidi = song.write("midi")
-    songFileLocation = generateOutputString()
+    datNumber = random.randint(1,1000000)
+    midiLocation = songMidiLocation(datNumber)
+    songMidi = song.write("midi", midiLocation)
+    songFileLocation = generateOutputString(datNumber)
     FluidSynth('GeneralUserGS.sf2').midi_to_audio(songMidi, songFileLocation)
-    return render_template("song.html", tonic = output[0]["tonic"], style = output[0]["style"], timeSignature = output[0]["timeSignature"], tonality = output[0]["tonality"], energy = output[0]["energy"],  measures = output[0]["measures"], songFileLocation=songFileLocation)
+    return render_template("song.html", tonic = output[0]["tonic"], style = output[0]["style"], timeSignature = output[0]["timeSignature"], tonality = output[0]["tonality"], energy = output[0]["energy"],  measures = output[0]["measures"], songFileLocation=songFileLocation, midiLocation=midiLocation)
 
 @app.route("/presets", methods=["GET", "POST"])
 @login_required
 def presets():
+    style = []
+    tonic = []
     if request.method == "POST":
         option = request.form.get("option")
         print(option)
@@ -158,13 +163,22 @@ def presets():
                 zero = "No Presets Saved!"
             else:
                 for p in pre:
-                    if (p["style"] == "naturalMinor"):
-                        p["style"] = "minor"
-                    if (len(p["tonic"]) == 2):
-                        p["tonic"] = p["tonic"][0]
-                    else:
-                        p["tonic"] = p["tonic"][0:2] + " / " + chr(ord(p["tonic"][0]) + 1) + "b"
-            return render_template("presets.html", pre=pre, zero=zero)
+                    style.append(p["style"])
+                    tonic.append(p["tonic"])
+                for i in range(0, (len(style)-1)):
+                    if (style[i] == "naturalMinor"):
+                        style[i] = "natural minor"
+                    if (style[i] == "harmonicMinor"):
+                        style[i] = "harmonic minor"
+                    if (style[i] == "majorPentatonic"):
+                        style[i] = "major pentatonic"
+                    if (style[i] == "minorPentatonic"):
+                        style[i] = "minor pentatonic"
+                    if (len(tonic[i]) == 2):
+                        tonic[i] = tonic[i][0]
+                    if (len(tonic[i]) == 3):
+                        tonic[i] = tonic[i][0:2] + " / " + chr(ord(tonic[i][0]) + 1) + "b"
+            return render_template("presets.html", pre=pre, zero=zero, style=style, tonic=tonic)
         if(option == "regenerate"):
             regen = db.execute("SELECT * FROM favs WHERE (userid = :userid and name = :name)", userid=session["user_id"], name=name1)
             db.execute("UPDATE active SET tonic = :tonic, style = :style, timeSignature =:timeSignature, tonality=:tonality, energy=:energy, measures=:measures WHERE userid = :userid",
@@ -175,14 +189,24 @@ def presets():
         zero = ""
         if pre == []:
             zero = "No Presets Saved!"
-        for p in pre:
-            if (p["style"] == "naturalMinor"):
-                p["style"] = "minor"
-            if (len(p["tonic"]) == 2):
-                p["tonic"] = p["tonic"][0]
-            else:
-                p["tonic"] = p["tonic"][0:2] + " / " +chr(ord(p["tonic"][0]) + 1) + "b"
-        return render_template("presets.html", zero = zero, pre=pre)
+        else:
+            for p in pre:
+                    style.append(p["style"])
+                    tonic.append(p["tonic"])
+            for i in range(0, (len(style)-1)):
+                if (style[i] == "naturalMinor"):
+                    style[i] = "natural minor"
+                if (style[i] == "harmonicMinor"):
+                    style[i] = "harmonic minor"
+                if (style[i] == "majorPentatonic"):
+                    style[i] = "major pentatonic"
+                if (style[i] == "minorPentatonic"):
+                    style[i] = "minor pentatonic"
+                if (len(tonic[i]) == 2):
+                    tonic[i] = tonic[i][0]
+                if (len(tonic[i]) == 3):
+                    tonic[i] = tonic[i][0:2] + " / " + chr(ord(tonic[i][0]) + 1) + "b"
+        return render_template("presets.html", pre=pre, zero=zero, style=style, tonic=tonic)
 
 @app.route("/save", methods=["GET", "POST"])
 @login_required

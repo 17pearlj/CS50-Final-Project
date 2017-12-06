@@ -38,15 +38,19 @@
             <tbody style = color:white>
 
             {% for p in pre %}
+            {% for s in style %}
+            {% for t in tonic %}
                 <tr>
                     <td>{{p["name"]}}</td>
-                    <td>{{p["tonic"]}}</td>
-                    <td>{{p["style"]}}</td>
+                    <td>{{t}}</td>
+                    <td>{{s}}</td>
                     <td>{{p["timeSignature"]}}</td>
                     <td>{{p["tonality"]}}</td>
                     <td>{{p["energy"]}}</td>
                     <td>{{p["measures"]}}</td>
                 </tr>
+            {% endfor %}
+            {% endfor %}
             {% endfor %}
             </tbody>
         </table>
