@@ -168,7 +168,7 @@ div.transbox {
   margin: auto;
   border-radius: 15px 50px;
   width: 500px;
-  height: 355px;
+  height: 325px;
   background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
   background: rgba(0, 0, 0, .5);
   filter: alpha(opacity=30); /* For IE8 and earlier */
@@ -187,7 +187,7 @@ div.transbox2 {
   margin: auto;
   border-radius: 15px 50px;
   width: 500px;
-  height: 400px;
+  height: 350px;
   background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
   background: rgba(0, 0, 0, .5);
   filter: alpha(opacity=30); /* For IE8 and earlier */
@@ -231,7 +231,7 @@ div.transbox4 {
 div.transbox5 {
   margin: auto;
   border-radius: 15px 50px;
-  width: 800;
+  width: 840px;
   height:100000;
   background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
   background: rgba(0, 0, 0, .5);
@@ -255,6 +255,21 @@ div.transbox6 {
   top: 40px;
   left: 0;
   right: 0;
+  padding: 5px 0;
+}
+
+div.transbox7 {
+  margin: auto;
+  border-radius: 15px 50px;
+  width: 770px;
+  height:100000;
+  background: rgb(255, 249, 234); /* Fallback for older browsers without RGBA-support */
+  background: rgba(0, 0, 0, .5);
+  filter: alpha(opacity=30); /* For IE8 and earlier */
+  position: absolute;
+  top: 40px;
+  left: -5px;
+  right: 5px;
   padding: 5px 0;
 }
 div.transbox p {
@@ -434,28 +449,6 @@ h4 {
     font-size: 20px;
 }
 
-/*.newsong{*/
-/*    position: absolute;*/
-/*    top: 88px;*/
-/*    right: 420px;*/
-/*    width: 70px;*/
-/*    height: 70px;*/
-/*    background: url(https://i.imgur.com/D1U9vIV.png) no-repeat 0 0;*/
-/*    background-size: 100%;*/
-/*    content: "";*/
-/*}*/
-
-/*.newsong2{*/
-/*    position: absolute;*/
-/*    top: 147px;*/
-/*    right: 10px;*/
-/*    width: 90px;*/
-/*    height: 70px;*/
-/*    background: url(https://i.imgur.com/93E6ye0.png) no-repeat 0 0;*/
-/*    background-size: 100%;*/
-/*    content: "";*/
-/*}*/
-
 
 .btn {
     position: relative;
@@ -508,10 +501,13 @@ h4 {
     stroke-dashoffset: 437;
 }
 
-.btn:focus {
+.btn:focus, input[type="submit"]:focus {
     outline: none;
 }
 
+.btn:active, input[type="submit"]:active {
+    outline: none;
+}
 
 .center-on-page {
   position: absolute;
@@ -795,8 +791,7 @@ border-radius:7px 7px 7px 7px ;
 	display: inline-block;
 	position: relative;
 	padding: 10px 25px;
-
-	background-color: #6b2776;
+	background-color: rgba(255, 255, 255, .1);
 	color: white;
 	text-decoration: none;
 	font-size: 0.9em;
@@ -804,8 +799,15 @@ border-radius:7px 7px 7px 7px ;
 	text-indent: 15px;
 }
 
+#buttondownload1 {
+    border-radius: 0px 0px 0px 40px;
+}
+
+#buttondownload2 {
+    border-radius: 0px 0px 40px 0px;
+}
 .buttonDownload:hover {
-	background-color: #333;
+	background-color: #742d7f;
 	color: white;
 }
 
@@ -846,7 +848,7 @@ border-radius:7px 7px 7px 7px ;
 }
 
 .buttonDownload:hover:after {
-	border-top-color: #6b2776;
+	border-top-color: #ffffff;
 	animation-play-state: running;
 }
 
@@ -871,4 +873,8 @@ border-radius:7px 7px 7px 7px ;
 		margin-top: 0;
 		opacity: 0;
 	}
+}
+
+#player {
+    width:374px;
 }

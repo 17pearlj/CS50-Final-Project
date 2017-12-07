@@ -24,14 +24,14 @@
         <p><font face="Bree Serif" font size="4" color="white"><center>{{apology}}</center></font></p>
         <div class="form-group" id="input_container1">
         <!--<img src="https://image.flaticon.com/icons/svg/40/40358.svg" id="input_img";>-->
-        <input id="icon1" id="input" input autocomplete="off" style="width: 400px; margin-right: 0px; border-color:#784a89; padding:none" autofocus class="form-control" name="name" placeholder="Name of Set of Presets" type="text"/>
+        <input id="icon1" id="input" input autocomplete="off" style="width: 400px; margin-right: 0px; border-color:#784a89; padding:none" autofocus class="form-control" name="name" placeholder="Name of Preset" type="text"/>
 
 
         </div>
         <div class = "save">
-            <table class="table table-striped" style="margin-bottom: 100px" id="info">
+            <center><table class="table table-striped" style="margin-bottom: 100px; width:94%" id="info"></center>
             <thead>
-            <tr style = color:white font size = "5">
+            <tr style = "color:white; background-color: rgba(0, 0, 0, .23);" font size = "5">
                 <th>Key</th>
                 <th>Style</th>
                 <th>Time Signature</th>
@@ -42,12 +42,12 @@
             </thead>
             <tbody style= color:white>
             <tr>
-                <td>{{tonic}}</td>
-                <td>{{style}}</td>
-                <td>{{timeSignature}}</td>
-                <td>{{tonality}}</td>
-                <td>{{energy}}</td>
-                <td>{{measures}}</td>
+                <td>{{output[0]["key"]}}</td>
+                <td>{{output[0]["read"]}}</td>
+                <td>{{output[0]["timeSignature"]}}</td>
+                <td>{{output[0]["tonality"]}}</td>
+                <td>{{output[0]["energy"]}}</td>
+                <td>{{output[0]["measures"]}}</td>
             </tr>
             </tbody>
         </div>

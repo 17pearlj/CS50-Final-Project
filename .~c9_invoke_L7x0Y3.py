@@ -48,9 +48,9 @@ def index():
 # Login page, directs to home page
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """Log user in"""
     # Forget any user_id
     session.clear()
-    # Post method
     if request.method == "POST":
 
         # Query database for username
@@ -64,8 +64,6 @@ def login():
         # Store session id
         session["user_id"] = rows[0]["id"]
         return redirect("/")
-
-    # Get method
     else:
         return render_template("login.html", apology=" ")
 
@@ -73,7 +71,7 @@ def login():
 # Register page, directs to instructions
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    # Post method
+    """Register user"""
     if request.method == "POST":
 
         # Ensure username was submitted
@@ -108,7 +106,7 @@ def register():
         # Redirect user to instructions page
         return redirect("/instructions")
 
-    # Get method, render without apology
+    # Render without apology
     else:
         return render_template("register.html")
 
@@ -117,7 +115,6 @@ def register():
 @app.route("/song_input", methods=["GET", "POST"])
 @login_required
 def song_input():
-    # Post method
     if request.method == "POST":
 
         # Stores inputted values from form
@@ -140,8 +137,6 @@ def song_input():
         else:
             output = db.execute("UPDATE active SET tonic = :tonic, style = :style, timeSignature =:timeSignature, tonality=:tonality, energy=:energy, measures=:measures WHERE userid = :userid", userid = session["user_id"], tonic=tonic1, style=style1, timeSignature=timeSignature1, tonality=tonality1, energy=energy1, measures=measures1)
         return redirect("/song")
-
-    # Get method
     else:
         return render_template("song_input.html")
 
@@ -165,35 +160,22 @@ def song():
     # Location of wav file
     songFileLocation = generateOutputString(datNumber)
     FluidSynth('GeneralUserGS.sf2').midi_to_audio(songMidi, songFileLocation)
+    return render_template("song.html", tonic = output[0]["tonic"], style = output[0]["style"], timeSignature = output[0]["timeSignature"], tonality = output[0]["tonality"], energy = output[0]["energy"],  measures = output[0]["measures"], songFileLocation=songFileLocation, midiLocation=midiLocation)
 
-    # Renders song
-    return render_template("song.html", songFileLocation=songFileLocation, midiLocation=midiLocation)
-
-
-# Preset library page, including delete and regenerate function
 @app.route("/presets", methods=["GET", "POST"])
 @login_required
 def presets():
-    # Post method
+    read = []
+    key = []
     if request.method == "POST":
-
-        # Get option and name values from form
         option = request.form.get("option")
         name1 = request.form.get("name")
-
-        # Delete function
         if (option == "delete"):
-
-            # Delete from favs then reshow favs
             db.execute("DELETE FROM favs WHERE (userid = :userid and name = :name)", userid=session["user_id"], name=name1)
             pre = db.execute("SELECT * FROM favs WHERE userid = :userid", userid=session["user_id"])
-
             zero = ""
-            # If no presets left, shows zero message in table
             if (pre == []):
                 zero = "No Presets Saved!"
-
-            # Add dictionary values in pre for read and key from style and tonic that are readable to the user
             else:
                 for p in pre:
                     if (p["style"] == "naturalMinor"):
@@ -210,38 +192,17 @@ def presets():
                         p.update( { "key": p["tonic"][0] } )
                     if (len(p["tonic"]) == 3):
                         p.update( { "key": p["tonic"][0:2] + " / " + chr(ord(p["tonic"][0]) + 1) + "b" } )
-
-            # Renders template with pre being list of favorite presets, zero as apology message
-            return render_template("presets.html", pre=pre, zero = zero)
-
-        # Regenerate option
+            return render_template("presets.html", pre=pre)
         if(option == "regenerate"):
-
-            # Selects values from fav to be regenerated
             regen = db.execute("SELECT * FROM favs WHERE (userid = :userid and name = :name)", userid=session["user_id"], name=name1)
-
-            # Puts those values in the active table
             db.execute("UPDATE active SET tonic = :tonic, style = :style, timeSignature =:timeSignature, tonality=:tonality, energy=:energy, measures=:measures WHERE userid = :userid",
                 userid = session["user_id"], tonic=regen[0]["tonic"], style=regen[0]["style"], timeSignature=regen[0]["timeSignature"], tonality=regen[0]["tonality"], energy=regen[0]["energy"], measures=regen[0]["measures"])
-
-            # Redirects to song
             return redirect("/song")
-
-        # Neither regenerate or delete clicked, redirects to song_input
-        else:
-            return redirect("/song_input")
-
-    # Get method
     else:
-        # Select favorite presets
         pre = db.execute("SELECT * FROM favs WHERE userid = :userid", userid=session["user_id"])
-
         zero = ""
-        # If no presets left, shows zero message in table
-        if (pre == []):
+        if pre == []:
             zero = "No Presets Saved!"
-
-        # Add dictionary values in pre for read and key from style and tonic that are readable to the user
         else:
             for p in pre:
                 if (p["style"] == "naturalMinor"):
@@ -258,22 +219,13 @@ def presets():
                     p.update( { "key": p["tonic"][0] } )
                 if (len(p["tonic"]) == 3):
                     p.update( { "key": p["tonic"][0:2] + " / " + chr(ord(p["tonic"][0]) + 1) + "b" } )
+        return render_template("presets.html", pre=pre)
 
-        # Renders template with pre being list of favorite presets, zero as apology message
-        return render_template("presets.html", pre=pre, zero=zero)
-
-# Save preset option
 @app.route("/save", methods=["GET", "POST"])
 @login_required
 def save():
-
-    # Creates empty apology string
     apology = ""
-
-    # Selects values from active
     output = db.execute("SELECT * FROM active WHERE userid = :userid", userid=session["user_id"])
-
-    # Add dictionary values in output for read and key from style and tonic that are readable to the user
     if (output[0]["style"] == "naturalMinor"):
         output[0]["read"] = "Natural Minor"
     if (output[0]["style"] == "harmonicMinor"):
@@ -288,30 +240,18 @@ def save():
          output[0]["key"] = (output[0]["tonic"][0])
     if (len(output[0]["tonic"]) == 3):
         output[0]["key"] = (output[0]["tonic"][0:2] + " / " + chr(ord(output[0]["tonic"][0]) + 1) + "b")
-
-    # Post method
     if request.method == "POST":
-
-        # Get name from form
         name = request.form.get("name")
-
-        # Query for preset saved with same name value
         named = db.execute("SELECT * FROM favs WHERE (userid = :userid and name = :name)", userid = session["user_id"], name=name)
         if (named != []):
             apology = "You already used this name!"
-            return render_template("save.html", output=output, apology = apology)
-
-        # Insert new values into fav and redirect to presets
+            return render_template("save.html", output=output)
         else:
             db.execute("INSERT INTO favs (userid, name, tonic, style, timeSignature, tonality, energy, measures) VALUES (:userid, :name, :tonic, :style, :timeSignature, :tonality, :energy, :measures)", userid=session["user_id"], name=name, tonic = output[0]["tonic"], style = output[0]["style"], timeSignature = output[0]["timeSignature"], tonality = output[0]["tonality"], energy = output[0]["energy"],  measures = output[0]["measures"])
             return redirect("/presets")
-
-    # Get method
     else:
         return render_template("save.html", output=output)
 
-
-# Instructions page, no login required
 @app.route("/instructions", methods=["GET", "POST"])
 def instructions():
     if request.method == "POST":
@@ -319,8 +259,6 @@ def instructions():
     else:
         return render_template("instructions.html")
 
-
-# Logout method
 @app.route("/logout")
 def logout():
     session.clear()

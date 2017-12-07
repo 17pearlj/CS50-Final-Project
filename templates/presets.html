@@ -22,51 +22,45 @@
         <div class="screen">
         <div class="transbox5">
 
-        <p><font face="Bree Serif" font size="6" color="white"><center>Your favorite presets!</center></font></p>
-        <table class="table table-striped" id = "info">
+        <p><font face="Bree Serif" font size="6" color="white"><center>Your favorite presets.</center></font></p>
+
+        <center><table class="table table-striped" id = "info" style="width:94%; margin-bottom:23px"></center>
             <thead>
-                <tr style = color:white font size = "5">
-                    <th>Name</th>
+                <tr style = "color:white; background-color: rgba(0, 0, 0, .23)" font size = "5">
+                    <strong><th>Name</th>
                     <th>Key</th>
                     <th>Style</th>
                     <th>Time Signature</th>
                     <th>Tonality</th>
                     <th>Energy</th>
-                    <th>Measures</th>
+                    <th>Measures</th></strong>
                 </tr>
             </thead>
-            <tbody style = color:white>
+            <tbody style = "color:white;">
 
             {% for p in pre %}
-            {% for s in style %}
-            {% for t in tonic %}
+
                 <tr>
                     <td>{{p["name"]}}</td>
-                    <td>{{t}}</td>
-                    <td>{{s}}</td>
-                    <td>{{p["timeSignature"]}}</td>
+                    <td>{{p["key"]}}</td>
+                    <td>{{p["read"]}}</td>
+                    <td>{{zero}}{{p["timeSignature"]}}</td>
                     <td>{{p["tonality"]}}</td>
                     <td>{{p["energy"]}}</td>
                     <td>{{p["measures"]}}</td>
                 </tr>
             {% endfor %}
-            {% endfor %}
-            {% endfor %}
+
+
             </tbody>
         </table>
+
+
         <p><font size="4" color="white"><center>{{zero}}</center></font></p>
-        <p><font face="Bree Serif" font size="5" color="white"><center>Preset Libary Options</center></font></p>
+        <!--<p><font face="Bree Serif" font size="5" color="white"><center>Preset Libary Options</center></font></p>-->
 
-        <div id="center-on-page3">
-            <!--input type="radio" name="option" id="edit" value="edit"/-->
-            <!--label for="edit">Edit Preset</label-->
-            <input type="radio" name="option" id="delete" value="delete"/>
-            <label for="delete">Delete Preset</label>
-            <input type="radio" name="option" id="regenerate" value="regenerate"/>
-            <label for="regenerate">Regenerate Preset Song </label>
-        </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:inline-block; padding-right: 20px">
             <select class="form-control" name="name">
             <option disabled selected value="">Name of Preset</option>
                 {% for p in pre %}
@@ -75,7 +69,17 @@
             </select>
         </div>
 
-        <button class="btn" style="margin-top: 10px;">
+        <div id="center-on-page3" style="display:inline-block">
+            <!--input type="radio" name="option" id="edit" value="edit"/-->
+            <!--label for="edit">Edit Preset</label-->
+            <input type="radio" name="option" id="delete" value="delete"/>
+            <label for="delete">Delete Preset</label>
+            <input type="radio" name="option" id="regenerate" value="regenerate"/>
+            <label for="regenerate">Regenerate Preset Song </label>
+        </div>
+
+        <div>
+        <button class="btn" style="margin-top: 7px; margin-bottom: 20px">
             <svg width="277" height="62">
                 <defs>
                 <linearGradient id="grad1">
@@ -86,7 +90,8 @@
                 <rect x="5" y="5" rx="25" fill="none" stroke="url(#grad1)" width="266" height="50"></rect>
             </svg>
                 <span>Okay</span>
-            </button>
+        </button>
+        </div>
     </form>
     <script>
         let form = document.getElementById("preset");
