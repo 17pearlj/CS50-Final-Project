@@ -1,8 +1,8 @@
-SpoonTune: A Sound Bite
+# SpoonTune: A Sound Bite
 
 Video - https://youtu.be/aOzz1BTKcOU
-=========================================================================================================================
-Introduction-
+
+## Introduction-
 
 
 SpoonTune is a lightweight melody generation app built on a flask server. It is designed for a musician to be able to
@@ -11,8 +11,8 @@ it in either a .wav format or .midi format. The former is better for composers, 
 producers working in a DAW (such as Garageband of Fruityloops). The website allows for users to create an account, with
 which they can save their favorite presets.
 
-========================================================================================================================
-Parameters-
+
+## Parameters-
 
 
 Key - Sets the tonic note of the song
@@ -27,20 +27,20 @@ Measures - How many measures there are
 
 Time Signature - The time signature of the song
 
-=======================================================================================================================
-Libraries used-
+
+### Libraries used-
 
 
 music21 - Allowed for the conversion of randomly generated notes and rythyms into midi files. Dowload information
 be found at http://web.mit.edu/music21/doc/installing/installLinux.html. Basically, you just need to run...
 
-pip3 install –upgrade music21
+   pip3 install –upgrade music21
 
 midi2audio - A library that allows for the conversion of a midi file to a wav file, using the audio synthesizer Fluid
 Synth. Install using the command...
 
-pip install midi2audio
+   pip install midi2audio
 
-midi2audio also requires a song font, "GeneralUserGS.sf2", which can be downloaded at
+   midi2audio also requires a song font, "GeneralUserGS.sf2", which can be downloaded at
 http://schristiancollins.com/generaluser.php
-=======================================================================================================================
+
